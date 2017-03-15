@@ -7,6 +7,7 @@ pipeline {
        stage('Build') {
             steps {
                sh './build.sh'
+               sh 'rm test.sh'
             }
        }
        stage('Unit tests') {
@@ -24,7 +25,7 @@ pipeline {
 
         }
        stage('Acceptance tests') {
-           steps { sh 'touch "ACCEPTED"' }
+           steps { sh './acceptance.sh' }
        }
    }
 }
